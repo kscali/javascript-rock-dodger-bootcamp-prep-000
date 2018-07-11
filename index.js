@@ -67,11 +67,11 @@ function createRock(x) {
      }
   }
 
-  window.requestAnimationFrame(moveRock);
+window.requestAnimationFrame(moveRock);
 
-  ROCKS.push(rock);
+ROCKS.push(rock);
 
-  return rock;
+return rock;
 }
 
 
