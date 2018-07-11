@@ -180,10 +180,10 @@ var left = positionToInteger(DODGER.style.left);
      function step() {
        DODGER.style.left = `${left + 4}px`;
        if (left < 360) {
-         window.requestAnimationFrame(step)
+         window.requestAnimationFrame(step);
        }
      }       
- 
+}
  
 
 /**
@@ -202,4 +202,5 @@ function start() {
   gameInterval = setInterval(function() {
     createRock(Math.floor(Math.random() *  (GAME_WIDTH - 20)));
   }, 1000);
+}
 }
