@@ -83,7 +83,7 @@ function createRock(x) {
    */
   function moveRock(rock) {
     // implement me!
-    
+    rock.style.top = `${top += 2}px`;
   
     // (use the comments below to guide you!)
     /**
@@ -148,7 +148,7 @@ function moveDodger(e) {
   document.addEventListener('keydown', function(e) {
   if (e.which === LEFT_ARROW) {
     moveDodgerLeft();
-    
+    e.preventDefault
   }
   if (e.which === RIGHT_ARROW) {
     moveDodgerRight();
