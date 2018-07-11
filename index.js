@@ -35,45 +35,7 @@ function checkCollision(rock) {
   }
 }    
   
-               
-     
-function createRock(x) {
-  const rock = document.createElement('div');
 
-  rock.className = 'rock';
-  rock.style.left = `${x}px`;
-
-  var top = 0;
-
-  rock.style.top = top;
-
-  GAME.appendChild(rock);
-
-  
-  function moveRock(rock) {
-    
-    rock.style.top = `${top += 2}px`;
-  
-   if (checkCollision(rock)) {
-      
-      return endGame();
-      
-    } else if (top < GAME_HEIGHT) {
-      
-      window.requestAnimationFrame(moveRock);
-    }
-     else {
-       rock.remove();
-       
-     }
-  }
-
-window.requestAnimationFrame(moveRock);
-
-ROCKS.push(rock);
-
-return rock;
-}
 
 
 function endGame() {
