@@ -65,33 +65,29 @@ function createRock(x) {
        rock.remove();
        
      }
-}
+  }
 
-  // We should kick of the animation of the rock around here
   window.requestAnimationFrame(moveRock);
 
-  // Add the rock to ROCKS so that we can remove all rocks
-  // when there's a collision
   ROCKS.push(rock);
 
-  // Finally, return the rock element you've created
   return rock;
 }
 
-/**
- * End the game by clearing `gameInterval`,
- * removing all ROCKS from the DOM,
- * and removing the `moveDodger` event listener.
- * Finally, alert "YOU LOSE!" to the player.
- */
+
 function endGame() {
+  
   clearInterval(gameInterval);
+  
   ROCKS.forEach(function(rock) { rock.remove() });
+  
   document.removeEventListener('keydown', moveDodger);
+  
   alert("YOU LOSE!");
 }
 
 function moveDodger(e) {
+  
   const code = e.which
 
   if ([LEFT_ARROW, RIGHT_ARROW].indexOf(code) > -1) {
@@ -107,47 +103,35 @@ function moveDodger(e) {
 }
 
 function moveDodgerLeft() {
+ 
   window.requestAnimationFrame(function() {
-    const left = positionToInteger(DODGER.style.left)
+   
+    const left = positionToInteger(DODGER.style.left);
 
     if (left > 0) {
       DODGER.style.left = `${left - 4}px`;
     }
-  })
+  });
 }
 
 function moveDodgerRight() {
+  
   window.requestAnimationFrame(function() {
-    const left = positionToInteger(DODGER.style.left)
+    const left = positionToInteger(DODGER.style.left);
 
     if (left < 360) {
       DODGER.style.left = `${left + 4}px`;
     }
-  })
+  });
 }
 
-  // implement me!
-  /**
-   * This function should call `moveDodgerLeft()`
-   * if the left arrow is pressed and `moveDodgerRight()`
-   * if the right arrow is pressed. (Check the constants
-   * we've declared for you above.)
-   * And be sure to use the functions declared below!
-   
-
-
-
- 
-
-/**
- * @param {string} p The position property
- * @returns {number} The position as an integer (without 'px')
- */
 function positionToInteger(p) {
+  
   return parseInt(p.split('px')[0]) || 0;
 }
 
 function start() {
+  
   window.addEventListener('keydown', moveDodger);
 
   START.style.display = 'none';
@@ -155,5 +139,5 @@ function start() {
   gameInterval = setInterval(function() {
     createRock(Math.floor(Math.random() *  (GAME_WIDTH - 20)));
   }, 1000);
-}
+
 }
