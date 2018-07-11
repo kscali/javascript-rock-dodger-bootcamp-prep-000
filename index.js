@@ -35,7 +35,36 @@ function checkCollision(rock) {
   }
 }    
   
+unction createRock(x) {
+  const rock = document.createElement('div')
 
+  rock.className = 'rock'
+  rock.style.left = `${x}px`
+
+  var top = rock.style.top = 0
+
+  GAME.appendChild(rock)
+
+  function moveRock() {
+    rock.style.top = `${top += 2}px`;
+
+    if (checkCollision(rock)) {
+      return endGame()
+    }
+
+    if (top < GAME_HEIGHT) {
+      window.requestAnimationFrame(moveRock)
+    } else {
+      rock.remove()
+    }
+  }
+
+  window.requestAnimationFrame(moveRock)
+
+  ROCKS.push(rock)
+
+  return rock
+}
 
 
 function endGame() {
