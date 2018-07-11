@@ -83,7 +83,7 @@ function createRock(x) {
    */
   function moveRock(rock) {
     // implement me!
-    var top = 0;
+    
   
     // (use the comments below to guide you!)
     /**
